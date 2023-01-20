@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://www.hsu-ifa.de/ontologies/ISA-TR88/1.2.0" uri="http://www.w3id.org/hsu-aut/isa88/1.4.2"/>
+    <uri id="Imports Wizard Entry" name="http://www.w3id.org/hsu-aut/css" uri="http://www.w3id.org/hsu-aut/css/1.0.0"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base=""/>
+</catalog>

@@ -8,7 +8,7 @@
 
 <http://www.w3id.org/hsu-aut/cask> rdf:type owl:Ontology ;
                                     owl:versionIRI <http://www.w3id.org/hsu-aut/cask/1.0.0> ;
-                                    owl:imports <http://www.w3id.org/hsu-aut/css/1.0.0> ,
+                                    owl:imports <https://raw.githubusercontent.com/hsu-aut/css-ontology/v1.0.0/CSS-Ontology.owl> ,
                                                 <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-DINEN61360/v1.4.2/DINEN61360.owl> ,
                                                 <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-ISA88/v2.0.0/ISA88.owl> ,
                                                 <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-VDI2206/v1.4.2/VDI2206.owl> ,

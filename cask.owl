@@ -7,7 +7,7 @@
 @base <http://www.w3id.org/hsu-aut/cask> .
 
 <http://www.w3id.org/hsu-aut/cask> rdf:type owl:Ontology ;
-                                    owl:versionIRI <http://www.w3id.org/hsu-aut/cask/1.1.1> ;
+                                    owl:versionIRI <http://www.w3id.org/hsu-aut/cask/2.0.0> ;
                                     owl:imports <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-DINEN61360/v1.4.2/DINEN61360.owl> ,
                                                 <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-ISA88/v2.0.0/ISA88.owl> ,
                                                 <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-VDI2206/v1.4.2/VDI2206.owl> ,
@@ -18,6 +18,18 @@
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://www.hsu-ifa.de/ontologies/VDI2206#hasInput
+<http://www.hsu-ifa.de/ontologies/VDI2206#hasInput> owl:equivalentProperty <http://www.hsu-ifa.de/ontologies/VDI3682#hasInput> .
+
+
+###  http://www.hsu-ifa.de/ontologies/VDI2206#hasOutput
+<http://www.hsu-ifa.de/ontologies/VDI2206#hasOutput> owl:equivalentProperty <http://www.hsu-ifa.de/ontologies/VDI3682#hasOutput> .
+
+
+###  http://www.hsu-ifa.de/ontologies/VDI3682#hasInput
+
+###  http://www.hsu-ifa.de/ontologies/VDI3682#hasOutput
 
 ###  http://www.w3id.org/hsu-aut/cask#hasCurrentState
 :hasCurrentState rdf:type owl:ObjectProperty ,
@@ -60,6 +72,14 @@
 
 ###  http://www.w3id.org/hsu-aut/cask#isInvokedBy
 :isInvokedBy rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3id.org/hsu-aut/css#hasInput
+<http://www.w3id.org/hsu-aut/css#hasInput> rdfs:subPropertyOf <http://www.hsu-ifa.de/ontologies/VDI3682#hasInput> .
+
+
+###  http://www.w3id.org/hsu-aut/css#hasOutput
+<http://www.w3id.org/hsu-aut/css#hasOutput> rdfs:subPropertyOf <http://www.hsu-ifa.de/ontologies/VDI3682#hasOutput> .
 
 
 ###  http://www.w3id.org/hsu-aut/css#providesCapability
@@ -119,9 +139,17 @@
 <http://www.hsu-ifa.de/ontologies/VDI2206#Information> owl:equivalentClass <http://www.hsu-ifa.de/ontologies/VDI3682#Information> .
 
 
+###  http://www.hsu-ifa.de/ontologies/VDI2206#Module
+<http://www.hsu-ifa.de/ontologies/VDI2206#Module> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource> .
+
+
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#Product
 <http://www.hsu-ifa.de/ontologies/VDI2206#Product> owl:equivalentClass <http://www.hsu-ifa.de/ontologies/VDI3682#Product> ,
                                                                        <http://www.w3id.org/hsu-aut/css#Product> .
+
+
+###  http://www.hsu-ifa.de/ontologies/VDI2206#System
+<http://www.hsu-ifa.de/ontologies/VDI2206#System> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource> .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI3682#Energy

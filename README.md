@@ -29,6 +29,11 @@ The CaSk ontology makes use of so-called *Ontology Design Patterns* (ODPs), whic
 - **ISA 88**: This ODP contains the state machine according to PackML with all its states and transitions. This `ISA88:StateMachine` is modeled to be a subclass of `CSS:StateMachine` so that state machines of skills can be modeled in great detail.
 - **IEC 61360**: IEC 61360 defines a meta model for properties. With this ODP, you can define your own property (types and instances). Types are defined only once so that all instances of a type can refer to this one type definition. Properties according to IEC 61360 can be used to model capability properties but also to express all sorts of things about other model elements (e.g., processes or resources)
 
+A detailed overview of the alignment of these ODPs with the CSS ontology is shown in the following figure:
+<p align="center">
+<img src="https://github.com/hsu-aut/cask/blob/documentation/images/images/cask-alignment.png?raw=true" width="800" title="CSS Architecture">
+</p>
+
 
 ## Ontology example
 Detailed examples can be found in the two repositories of  [CaSkMan](https://github.com/aljoshakoecher/caskman) and [RoboCaSk](https://github.com/Miguel2617/robocap). Are you interested in a more abstract example using only the CaSk ontology? Feel free to create an issue to let us know. We can provide such an example in the future.

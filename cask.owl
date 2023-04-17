@@ -58,8 +58,14 @@
                  rdfs:range <http://www.hsu-ifa.de/ontologies/ISA-TR88#State> .
 
 
+###  http://www.w3id.org/hsu-aut/cask#hasCurrentStateOutput
+:hasCurrentStateOutput rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf :hasSkillOutput .
+
+
 ###  http://www.w3id.org/hsu-aut/cask#hasSkillCommand
 :hasSkillCommand rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf <http://www.w3id.org/hsu-aut/css#hasParameter> ;
                  rdfs:domain <http://www.w3id.org/hsu-aut/css#Skill> ;
                  rdfs:range :SkillCommand .
 

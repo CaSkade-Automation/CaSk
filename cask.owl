@@ -37,17 +37,37 @@
 
 ###  http://www.w3id.org/hsu-aut/cask#exposesSkillMethod
 :exposesSkillMethod rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf <http://www.w3id.org/hsu-aut/css#exposes> .
+                    rdfs:subPropertyOf <http://www.w3id.org/hsu-aut/css#exposes> ;
+                    rdfs:domain <http://www.w3id.org/hsu-aut/css#SkillInterface> ;
+                    rdfs:range :SkillMethod .
+
+
+###  http://www.w3id.org/hsu-aut/cask#exposesSkillOutput
+:exposesSkillOutput rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :exposesSkillVariable ;
+                    rdfs:domain <http://www.w3id.org/hsu-aut/css#SkillInterface> ;
+                    rdfs:range :SkillOutput .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#exposesSkillParameter
 :exposesSkillParameter rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf <http://www.w3id.org/hsu-aut/css#exposes> .
+                       rdfs:subPropertyOf :exposesSkillVariable ;
+                       rdfs:domain <http://www.w3id.org/hsu-aut/css#SkillInterface> ;
+                       rdfs:range <http://www.w3id.org/hsu-aut/css#SkillParameter> .
+
+
+###  http://www.w3id.org/hsu-aut/cask#exposesSkillVariable
+:exposesSkillVariable rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf <http://www.w3id.org/hsu-aut/css#exposes> ;
+                      rdfs:domain <http://www.w3id.org/hsu-aut/css#SkillInterface> ;
+                      rdfs:range :SkillVariable .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#exposesStateMachine
 :exposesStateMachine rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf <http://www.w3id.org/hsu-aut/css#exposes> .
+                     rdfs:subPropertyOf <http://www.w3id.org/hsu-aut/css#exposes> ;
+                     rdfs:domain <http://www.w3id.org/hsu-aut/css#SkillInterface> ;
+                     rdfs:range <http://www.w3id.org/hsu-aut/css#StateMachine> .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasCurrentState

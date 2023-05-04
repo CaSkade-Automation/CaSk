@@ -1,9 +1,13 @@
 @prefix : <http://www.w3id.org/hsu-aut/cask#> .
+@prefix CSS: <http://www.w3id.org/hsu-aut/css#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ISA88: <http://www.hsu-ifa.de/ontologies/ISA-TR88#> .
+@prefix VDI2206: <http://www.hsu-ifa.de/ontologies/VDI2206#> .
+@prefix DINEN61360: <http://www.hsu-ifa.de/ontologies/DINEN61360#> .
 @base <http://www.w3id.org/hsu-aut/cask> .
 
 <http://www.w3id.org/hsu-aut/cask> rdf:type owl:Ontology ;
@@ -20,62 +24,62 @@
 #################################################################
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#hasInput
-<http://www.hsu-ifa.de/ontologies/VDI2206#hasInput> owl:equivalentProperty <http://www.hsu-ifa.de/ontologies/VDI3682#hasInput> .
+VDI2206:hasInput owl:equivalentProperty <http://www.hsu-ifa.de/ontologies/VDI3682#hasInput> .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#hasOutput
-<http://www.hsu-ifa.de/ontologies/VDI2206#hasOutput> owl:equivalentProperty <http://www.hsu-ifa.de/ontologies/VDI3682#hasOutput> .
+VDI2206:hasOutput owl:equivalentProperty <http://www.hsu-ifa.de/ontologies/VDI3682#hasOutput> .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI3682#hasInput
-<http://www.hsu-ifa.de/ontologies/VDI3682#hasInput> owl:equivalentProperty <http://www.w3id.org/hsu-aut/css#hasInput> .
+<http://www.hsu-ifa.de/ontologies/VDI3682#hasInput> owl:equivalentProperty CSS:hasInput .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI3682#hasOutput
-<http://www.hsu-ifa.de/ontologies/VDI3682#hasOutput> owl:equivalentProperty <http://www.w3id.org/hsu-aut/css#hasOutput> .
+<http://www.hsu-ifa.de/ontologies/VDI3682#hasOutput> owl:equivalentProperty CSS:hasOutput .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#exposesSkillMethod
 :exposesSkillMethod rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf <http://www.w3id.org/hsu-aut/css#exposes> ;
-                    rdfs:domain <http://www.w3id.org/hsu-aut/css#SkillInterface> ;
+                    rdfs:subPropertyOf CSS:exposes ;
+                    rdfs:domain CSS:SkillInterface ;
                     rdfs:range :SkillMethod .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#exposesSkillOutput
 :exposesSkillOutput rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf :exposesSkillVariable ;
-                    rdfs:domain <http://www.w3id.org/hsu-aut/css#SkillInterface> ;
+                    rdfs:domain CSS:SkillInterface ;
                     rdfs:range :SkillOutput .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#exposesSkillParameter
 :exposesSkillParameter rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :exposesSkillVariable ;
-                       rdfs:domain <http://www.w3id.org/hsu-aut/css#SkillInterface> ;
-                       rdfs:range <http://www.w3id.org/hsu-aut/css#SkillParameter> .
+                       rdfs:domain CSS:SkillInterface ;
+                       rdfs:range CSS:SkillParameter .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#exposesSkillVariable
 :exposesSkillVariable rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf <http://www.w3id.org/hsu-aut/css#exposes> ;
-                      rdfs:domain <http://www.w3id.org/hsu-aut/css#SkillInterface> ;
+                      rdfs:subPropertyOf CSS:exposes ;
+                      rdfs:domain CSS:SkillInterface ;
                       rdfs:range :SkillVariable .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#exposesStateMachine
 :exposesStateMachine rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf <http://www.w3id.org/hsu-aut/css#exposes> ;
-                     rdfs:domain <http://www.w3id.org/hsu-aut/css#SkillInterface> ;
-                     rdfs:range <http://www.w3id.org/hsu-aut/css#StateMachine> .
+                     rdfs:subPropertyOf CSS:exposes ;
+                     rdfs:domain CSS:SkillInterface ;
+                     rdfs:range CSS:StateMachine .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasCurrentState
 :hasCurrentState rdf:type owl:ObjectProperty ,
                           owl:FunctionalProperty ,
                           owl:AsymmetricProperty ;
-                 rdfs:domain <http://www.w3id.org/hsu-aut/css#Skill> ;
-                 rdfs:range <http://www.hsu-ifa.de/ontologies/ISA-TR88#State> .
+                 rdfs:domain CSS:Skill ;
+                 rdfs:range ISA88:State .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasCurrentStateOutput
@@ -85,27 +89,27 @@
 
 ###  http://www.w3id.org/hsu-aut/cask#hasSkillCommand
 :hasSkillCommand rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf <http://www.w3id.org/hsu-aut/css#hasParameter> ;
-                 rdfs:domain <http://www.w3id.org/hsu-aut/css#Skill> ;
+                 rdfs:subPropertyOf CSS:hasParameter ;
+                 rdfs:domain CSS:Skill ;
                  rdfs:range :SkillCommand .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasSkillMethod
 :hasSkillMethod rdf:type owl:ObjectProperty ;
-                rdfs:domain <http://www.w3id.org/hsu-aut/css#Skill> ;
+                rdfs:domain CSS:Skill ;
                 rdfs:range :SkillMethod .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasSkillOutput
 :hasSkillOutput rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf :hasSkillVariable ;
-                rdfs:domain <http://www.w3id.org/hsu-aut/css#Skill> ;
+                rdfs:domain CSS:Skill ;
                 rdfs:range :SkillOutput .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasSkillVariable
 :hasSkillVariable rdf:type owl:ObjectProperty ;
-                  rdfs:domain <http://www.w3id.org/hsu-aut/css#Skill> ;
+                  rdfs:domain CSS:Skill ;
                   rdfs:range :SkillVariable .
 
 
@@ -113,7 +117,7 @@
 :invokes rdf:type owl:ObjectProperty ;
          owl:inverseOf :isInvokedBy ;
          rdfs:domain :SkillMethod ;
-         rdfs:range <http://www.hsu-ifa.de/ontologies/ISA-TR88#Transition> .
+         rdfs:range ISA88:Transition .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#isInvokedBy
@@ -121,7 +125,7 @@
 
 
 ###  http://www.w3id.org/hsu-aut/css#exposes
-<http://www.w3id.org/hsu-aut/css#exposes> rdfs:range :SkillMethod .
+CSS:exposes rdfs:range :SkillMethod .
 
 
 ###  http://www.w3id.org/hsu-aut/css#hasInput
@@ -129,15 +133,15 @@
 ###  http://www.w3id.org/hsu-aut/css#hasOutput
 
 ###  http://www.w3id.org/hsu-aut/css#hasParameter
-<http://www.w3id.org/hsu-aut/css#hasParameter> rdfs:subPropertyOf :hasSkillVariable .
+CSS:hasParameter rdfs:subPropertyOf :hasSkillVariable .
 
 
 ###  http://www.w3id.org/hsu-aut/css#providesCapability
-<http://www.w3id.org/hsu-aut/css#providesCapability> rdfs:range :ProvidedCapability .
+CSS:providesCapability rdfs:range :ProvidedCapability .
 
 
 ###  http://www.w3id.org/hsu-aut/css#requiresCapability
-<http://www.w3id.org/hsu-aut/css#requiresCapability> rdfs:range :RequiredCapability .
+CSS:requiresCapability rdfs:range :RequiredCapability .
 
 
 #################################################################
@@ -174,36 +178,36 @@
 #################################################################
 
 ###  http://www.hsu-ifa.de/ontologies/DINEN61360#Data_Element
-<http://www.hsu-ifa.de/ontologies/DINEN61360#Data_Element> rdfs:subClassOf <http://www.w3id.org/hsu-aut/css#Property> .
+DINEN61360:Data_Element rdfs:subClassOf CSS:Property .
 
 
 ###  http://www.hsu-ifa.de/ontologies/ISA-TR88#Command
-<http://www.hsu-ifa.de/ontologies/ISA-TR88#Command> rdfs:subClassOf :StatefulMethod .
+ISA88:Command rdfs:subClassOf :StatefulMethod .
 
 
 ###  http://www.hsu-ifa.de/ontologies/ISA-TR88#StateMachine
-<http://www.hsu-ifa.de/ontologies/ISA-TR88#StateMachine> rdfs:subClassOf <http://www.w3id.org/hsu-aut/css#StateMachine> .
+ISA88:StateMachine rdfs:subClassOf CSS:StateMachine .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#Energy
-<http://www.hsu-ifa.de/ontologies/VDI2206#Energy> owl:equivalentClass <http://www.hsu-ifa.de/ontologies/VDI3682#Energy> .
+VDI2206:Energy owl:equivalentClass <http://www.hsu-ifa.de/ontologies/VDI3682#Energy> .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#Information
-<http://www.hsu-ifa.de/ontologies/VDI2206#Information> owl:equivalentClass <http://www.hsu-ifa.de/ontologies/VDI3682#Information> .
+VDI2206:Information owl:equivalentClass <http://www.hsu-ifa.de/ontologies/VDI3682#Information> .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#Module
-<http://www.hsu-ifa.de/ontologies/VDI2206#Module> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource> .
+VDI2206:Module rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource> .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#Product
-<http://www.hsu-ifa.de/ontologies/VDI2206#Product> owl:equivalentClass <http://www.hsu-ifa.de/ontologies/VDI3682#Product> ,
-                                                                       <http://www.w3id.org/hsu-aut/css#Product> .
+VDI2206:Product owl:equivalentClass <http://www.hsu-ifa.de/ontologies/VDI3682#Product> ,
+                                    CSS:Product .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#System
-<http://www.hsu-ifa.de/ontologies/VDI2206#System> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource> .
+VDI2206:System rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource> .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI3682#Energy
@@ -211,13 +215,13 @@
 ###  http://www.hsu-ifa.de/ontologies/VDI3682#Information
 
 ###  http://www.hsu-ifa.de/ontologies/VDI3682#Process
-<http://www.hsu-ifa.de/ontologies/VDI3682#Process> owl:equivalentClass <http://www.w3id.org/hsu-aut/css#Process> .
+<http://www.hsu-ifa.de/ontologies/VDI3682#Process> owl:equivalentClass CSS:Process .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI3682#Product
 
 ###  http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource
-<http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource> rdfs:subClassOf <http://www.w3id.org/hsu-aut/css#Resource> .
+<http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource> rdfs:subClassOf CSS:Resource .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#CurrentStateOutput
@@ -233,12 +237,12 @@
 
 ###  http://www.w3id.org/hsu-aut/cask#ProvidedCapability
 :ProvidedCapability rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.w3id.org/hsu-aut/css#Capability> .
+                    rdfs:subClassOf CSS:Capability .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#RequiredCapability
 :RequiredCapability rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.w3id.org/hsu-aut/css#Capability> .
+                    rdfs:subClassOf CSS:Capability .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#SetParameters
@@ -248,7 +252,7 @@
 
 ###  http://www.w3id.org/hsu-aut/cask#SkillCommand
 :SkillCommand rdf:type owl:Class ;
-              rdfs:subClassOf <http://www.w3id.org/hsu-aut/css#SkillParameter> ;
+              rdfs:subClassOf CSS:SkillParameter ;
               rdfs:comment "May be used to invoke a transition with a numerical value" .
 
 
@@ -286,7 +290,7 @@
 ###  http://www.w3id.org/hsu-aut/css#Product
 
 ###  http://www.w3id.org/hsu-aut/css#SkillParameter
-<http://www.w3id.org/hsu-aut/css#SkillParameter> rdfs:subClassOf :SkillVariable .
+CSS:SkillParameter rdfs:subClassOf :SkillVariable .
 
 
 #################################################################
@@ -295,18 +299,18 @@
 
 ###  http://www.w3id.org/hsu-aut/cask#CurrentStateOutput_TD
 :CurrentStateOutput_TD rdf:type owl:NamedIndividual ,
-                                <http://www.hsu-ifa.de/ontologies/DINEN61360#Type_Description> ;
-                       <http://www.hsu-ifa.de/ontologies/DINEN61360#Definition> "A CurrentStateOutput is an integer variable that is used to reflect the current state of the state machine." ;
-                       <http://www.hsu-ifa.de/ontologies/DINEN61360#Note> "Note that there should always be instance descriptions connected to this type description that are connected to the states of the state machine in order to specify which value reflects a certain state." ;
-                       <http://www.hsu-ifa.de/ontologies/DINEN61360#Preferred_Name> "CurrentStateOutput" .
+                                DINEN61360:Type_Description ;
+                       DINEN61360:Definition "A CurrentStateOutput is an integer variable that is used to reflect the current state of the state machine." ;
+                       DINEN61360:Note "Note that there should always be instance descriptions connected to this type description that are connected to the states of the state machine in order to specify which value reflects a certain state." ;
+                       DINEN61360:Preferred_Name "CurrentStateOutput" .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#SkillCommandVariable_TD
 :SkillCommandVariable_TD rdf:type owl:NamedIndividual ,
-                                  <http://www.hsu-ifa.de/ontologies/DINEN61360#Type_Description> ;
-                         <http://www.hsu-ifa.de/ontologies/DINEN61360#Definition> "A SkillCommandVariable is an integer variable that is used to trigger transitions of the state machine. It can be seen as the counterpart to a skill method." ;
-                         <http://www.hsu-ifa.de/ontologies/DINEN61360#Note> "Note that there should always be instance descriptions of this type description connected to the transitions of the state machine in order to specify which values have to be used to trigger a transition." ;
-                         <http://www.hsu-ifa.de/ontologies/DINEN61360#Preferred_Name> "SkillCommandVariable" .
+                                  DINEN61360:Type_Description ;
+                         DINEN61360:Definition "A SkillCommandVariable is an integer variable that is used to trigger transitions of the state machine. It can be seen as the counterpart to a skill method." ;
+                         DINEN61360:Note "Note that there should always be instance descriptions of this type description connected to the transitions of the state machine in order to specify which values have to be used to trigger a transition." ;
+                         DINEN61360:Preferred_Name "SkillCommandVariable" .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

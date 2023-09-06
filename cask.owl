@@ -7,17 +7,19 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ISA88: <http://www.hsu-ifa.de/ontologies/ISA-TR88#> .
 @prefix VDI2206: <http://www.hsu-ifa.de/ontologies/VDI2206#> .
+@prefix VDI3682: <http://www.w3id.org/hsu-aut/VDI3682#> .
 @prefix DINEN61360: <http://www.hsu-ifa.de/ontologies/DINEN61360#> .
 @base <http://www.w3id.org/hsu-aut/cask> .
 
 <http://www.w3id.org/hsu-aut/cask> rdf:type owl:Ontology ;
-                                    owl:versionIRI <http://www.w3id.org/hsu-aut/cask/2.5.1> ;
+                                    owl:versionIRI <http://www.w3id.org/hsu-aut/cask/2.5.2> ;
                                     owl:imports <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-DINEN61360/v1.4.2/DINEN61360.owl> ,
                                                 <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-ISA88/v2.0.0/ISA88.owl> ,
                                                 <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-VDI2206/v1.4.2/VDI2206.owl> ,
                                                 <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-VDI3682/v4.0.1/VDI3682.owl> ,
                                                 <https://raw.githubusercontent.com/hsu-aut/css-ontology/v1.0.1/CSS-Ontology.owl> ;
-                                    rdfs:comment "A domain ontology to describe capabilities and skills. This ontology extends the concepts defined in the CSS ontology (https://github.com/hsu-aut/css-ontology) by using ontology design patterns for different standards." .
+                                    rdfs:comment "A domain ontology to describe capabilities and skills. This ontology extends the concepts defined in the CSS ontology (https://github.com/hsu-aut/css-ontology) by using ontology design patterns for different standards." ;
+                                    owl:versionInfo "2.5.2" .
 
 #################################################################
 #    Object Properties
@@ -547,50 +549,42 @@ ISA88:StateMachine rdfs:subClassOf CSS:StateMachine .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#Energy
-VDI2206:Energy owl:equivalentClass <http://www.hsu-ifa.de/ontologies/VDI3682#Energy> .
+VDI2206:Energy owl:equivalentClass VDI3682:Energy .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#Information
-VDI2206:Information owl:equivalentClass <http://www.hsu-ifa.de/ontologies/VDI3682#Information> .
+VDI2206:Information owl:equivalentClass VDI3682:Information .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#Module
-VDI2206:Module rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource> .
+VDI2206:Module rdfs:subClassOf VDI3682:TechnicalResource .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#Product
-VDI2206:Product owl:equivalentClass <http://www.hsu-ifa.de/ontologies/VDI3682#Product> ,
+VDI2206:Product owl:equivalentClass VDI3682:Product ,
                                     CSS:Product .
 
 
 ###  http://www.hsu-ifa.de/ontologies/VDI2206#System
-VDI2206:System rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource> .
-
-
-###  http://www.hsu-ifa.de/ontologies/VDI3682#Energy
-<http://www.hsu-ifa.de/ontologies/VDI3682#Energy> rdf:type owl:Class .
-
-
-###  http://www.hsu-ifa.de/ontologies/VDI3682#Information
-<http://www.hsu-ifa.de/ontologies/VDI3682#Information> rdf:type owl:Class .
-
-
-###  http://www.hsu-ifa.de/ontologies/VDI3682#Process
-<http://www.hsu-ifa.de/ontologies/VDI3682#Process> rdf:type owl:Class ;
-                                                   owl:equivalentClass CSS:Process .
-
-
-###  http://www.hsu-ifa.de/ontologies/VDI3682#Product
-<http://www.hsu-ifa.de/ontologies/VDI3682#Product> rdf:type owl:Class .
-
-
-###  http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource
-<http://www.hsu-ifa.de/ontologies/VDI3682#TechnicalResource> rdf:type owl:Class ;
-                                                             rdfs:subClassOf CSS:Resource .
+VDI2206:System rdfs:subClassOf VDI3682:TechnicalResource .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#List
 rdf:List rdf:type owl:Class .
+
+
+###  http://www.w3id.org/hsu-aut/VDI3682#Energy
+
+###  http://www.w3id.org/hsu-aut/VDI3682#Information
+
+###  http://www.w3id.org/hsu-aut/VDI3682#Process
+VDI3682:Process owl:equivalentClass CSS:Process .
+
+
+###  http://www.w3id.org/hsu-aut/VDI3682#Product
+
+###  http://www.w3id.org/hsu-aut/VDI3682#TechnicalResource
+VDI3682:TechnicalResource rdfs:subClassOf CSS:Resource .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#CurrentStateOutput

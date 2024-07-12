@@ -21,7 +21,7 @@
                                                 <http://www.w3id.org/hsu-aut/VDI3682/4.0.1> ,
                                                 <http://www.w3id.org/hsu-aut/css/1.0.1> ;
                                     rdfs:comment "A domain ontology to describe capabilities and skills. This ontology extends the concepts defined in the CSS ontology (https://github.com/hsu-aut/css-ontology) by using ontology design patterns for different standards." ;
-                                    owl:versionInfo "2.5.3" .
+                                    owl:versionInfo "2.5.4" .
 
 #################################################################
 #    Annotation properties

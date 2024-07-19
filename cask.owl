@@ -24,22 +24,6 @@
                                     owl:versionInfo "2.5.4" .
 
 #################################################################
-#    Annotation properties
-#################################################################
-
-###  http://www.w3id.org/hsu-aut/DINEN61360#Definition
-DINEN61360:Definition rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3id.org/hsu-aut/DINEN61360#Note
-DINEN61360:Note rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3id.org/hsu-aut/DINEN61360#Preferred_Name
-DINEN61360:Preferred_Name rdf:type owl:AnnotationProperty .
-
-
-#################################################################
 #    Object Properties
 #################################################################
 
@@ -25118,18 +25102,12 @@ OM-Math:operator <http://www.openmath.org/cd/relation1#eq> .
 
 ###  http://www.w3id.org/hsu-aut/cask#CurrentStateOutput_TD
 :CurrentStateOutput_TD rdf:type owl:NamedIndividual ,
-                                DINEN61360:Type_Description ;
-                       DINEN61360:Definition "A CurrentStateOutput is an integer variable that is used to reflect the current state of the state machine." ;
-                       DINEN61360:Note "Note that there should always be instance descriptions connected to this type description that are connected to the states of the state machine in order to specify which value reflects a certain state." ;
-                       DINEN61360:Preferred_Name "CurrentStateOutput" .
+                                DINEN61360:Type_Description .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#SkillCommandVariable_TD
 :SkillCommandVariable_TD rdf:type owl:NamedIndividual ,
-                                  DINEN61360:Type_Description ;
-                         DINEN61360:Definition "A SkillCommandVariable is an integer variable that is used to trigger transitions of the state machine. It can be seen as the counterpart to a skill method." ;
-                         DINEN61360:Note "Note that there should always be instance descriptions of this type description connected to the transitions of the state machine in order to specify which values have to be used to trigger a transition." ;
-                         DINEN61360:Preferred_Name "SkillCommandVariable" .
+                                  DINEN61360:Type_Description .
 
 
 [ rdf:type OM-Math:Literal ;

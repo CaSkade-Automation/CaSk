@@ -14,14 +14,14 @@
 @base <http://www.w3id.org/hsu-aut/cask#> .
 
 <http://www.w3id.org/hsu-aut/cask> rdf:type owl:Ontology ;
-                                    owl:versionIRI <http://www.w3id.org/hsu-aut/cask/2.5.4> ;
-                                    owl:imports <http://www.w3id.org/hsu-aut/PackML/3.0.0> ,
+                                    owl:versionIRI <http://www.w3id.org/hsu-aut/cask/3.0.0> ;
+                                    owl:imports <http://www.w3id.org/hsu-aut/DINEN61360/2.0.2> ,
+                                                <http://www.w3id.org/hsu-aut/PackML/3.0.0> ,
                                                 <http://www.w3id.org/hsu-aut/VDI2206/2.0.0> ,
                                                 <http://www.w3id.org/hsu-aut/VDI3682/4.0.1> ,
-												<http://www.w3id.org/hsu-aut/DINEN61360/2.0.1> ,
-                                                <http://www.w3id.org/hsu-aut/css/1.0.1> ;
+                                                <http://www.w3id.org/hsu-aut/css/2.0.0> ;
                                     rdfs:comment "A domain ontology to describe capabilities and skills. This ontology extends the concepts defined in the CSS ontology (https://github.com/hsu-aut/css-ontology) by using ontology design patterns for different standards." ;
-                                    owl:versionInfo "2.5.4" .
+                                    owl:versionInfo "3.0.0" .
 
 #################################################################
 #    Object Properties
@@ -79,32 +79,49 @@ rdf:first rdf:type owl:ObjectProperty .
 rdf:rest rdf:type owl:ObjectProperty .
 
 
+###  http://www.w3id.org/hsu-aut/PackML#consistsOfState
+PackML:consistsOfState rdfs:subPropertyOf CSS:consistsOfState .
+
+
+###  http://www.w3id.org/hsu-aut/PackML#consistsOfTransition
+PackML:consistsOfTransition rdfs:subPropertyOf CSS:consistsOfTransition .
+
+
+###  http://www.w3id.org/hsu-aut/PackML#hasIncomingTransition
+PackML:hasIncomingTransition rdfs:subPropertyOf CSS:hasIncomingTransition .
+
+
+###  http://www.w3id.org/hsu-aut/PackML#hasOutgoingTransition
+PackML:hasOutgoingTransition rdfs:subPropertyOf CSS:hasOutgoingTransition .
+
+
+###  http://www.w3id.org/hsu-aut/PackML#hasSourceState
+PackML:hasSourceState rdfs:subPropertyOf CSS:hasSourceState .
+
+
+###  http://www.w3id.org/hsu-aut/PackML#hasTargetState
+PackML:hasTargetState rdfs:subPropertyOf CSS:hasTargetState .
+
+
+###  http://www.w3id.org/hsu-aut/cask#exposesInputParameter
+:exposesInputParameter rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf CSS:exposesSkillParameter ;
+                       rdfs:domain CSS:SkillInterface ;
+                       rdfs:range CSS:InputParameter .
+
+
+###  http://www.w3id.org/hsu-aut/cask#exposesOutputParameter
+:exposesOutputParameter rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf CSS:exposesSkillParameter ;
+                        rdfs:domain CSS:SkillInterface ;
+                        rdfs:range CSS:OutputParameter .
+
+
 ###  http://www.w3id.org/hsu-aut/cask#exposesSkillMethod
 :exposesSkillMethod rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf CSS:exposes ;
+                    rdfs:subPropertyOf CSS:exposesSkillTrigger ;
                     rdfs:domain CSS:SkillInterface ;
                     rdfs:range :SkillMethod .
-
-
-###  http://www.w3id.org/hsu-aut/cask#exposesSkillOutput
-:exposesSkillOutput rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :exposesSkillVariable ;
-                    rdfs:domain CSS:SkillInterface ;
-                    rdfs:range :SkillOutput .
-
-
-###  http://www.w3id.org/hsu-aut/cask#exposesSkillParameter
-:exposesSkillParameter rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf :exposesSkillVariable ;
-                       rdfs:domain CSS:SkillInterface ;
-                       rdfs:range CSS:SkillParameter .
-
-
-###  http://www.w3id.org/hsu-aut/cask#exposesSkillVariable
-:exposesSkillVariable rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf CSS:exposes ;
-                      rdfs:domain CSS:SkillInterface ;
-                      rdfs:range :SkillVariable .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#exposesStateMachine
@@ -115,8 +132,9 @@ rdf:rest rdf:type owl:ObjectProperty .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasCurrentState
-:hasCurrentState rdf:type owl:ObjectProperty ,
-                          owl:FunctionalProperty ,
+:hasCurrentState rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf CSS:hasCurrentState ;
+                 rdf:type owl:FunctionalProperty ,
                           owl:AsymmetricProperty ;
                  rdfs:domain CSS:Skill ;
                  rdfs:range PackML:State .
@@ -124,52 +142,55 @@ rdf:rest rdf:type owl:ObjectProperty .
 
 ###  http://www.w3id.org/hsu-aut/cask#hasCurrentStateOutput
 :hasCurrentStateOutput rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf :hasSkillOutput .
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdfs:domain CSS:Skill ;
+                       rdfs:range :CurrentStateOutput .
+
+
+###  http://www.w3id.org/hsu-aut/cask#hasInputParameter
+:hasInputParameter rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf CSS:hasParameter ;
+                   rdfs:domain CSS:Skill ;
+                   rdfs:range CSS:InputParameter .
+
+
+###  http://www.w3id.org/hsu-aut/cask#hasOutputParameter
+:hasOutputParameter rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf CSS:hasParameter ;
+                    rdfs:domain CSS:Skill ;
+                    rdfs:range CSS:OutputParameter .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasSkillCommand
 :hasSkillCommand rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf CSS:hasParameter ;
+                 rdfs:subPropertyOf CSS:hasTrigger ;
                  rdfs:domain CSS:Skill ;
                  rdfs:range :SkillCommand .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasSkillMethod
 :hasSkillMethod rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf CSS:hasTrigger ;
                 rdfs:domain CSS:Skill ;
                 rdfs:range :SkillMethod .
 
 
-###  http://www.w3id.org/hsu-aut/cask#hasSkillOutput
-:hasSkillOutput rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :hasSkillVariable ;
-                rdfs:domain CSS:Skill ;
-                rdfs:range :SkillOutput .
-
-
-###  http://www.w3id.org/hsu-aut/cask#hasSkillVariable
-:hasSkillVariable rdf:type owl:ObjectProperty ;
-                  rdfs:domain CSS:Skill ;
-                  rdfs:range :SkillVariable .
-
-
 ###  http://www.w3id.org/hsu-aut/cask#invokes
 :invokes rdf:type owl:ObjectProperty ;
-         owl:inverseOf :isInvokedBy ;
+         owl:inverseOf :isInvokedBySkillMethod ;
          rdfs:domain :SkillMethod ;
          rdfs:range PackML:Transition .
 
 
-###  http://www.w3id.org/hsu-aut/cask#isInvokedBy
-:isInvokedBy rdf:type owl:ObjectProperty .
+###  http://www.w3id.org/hsu-aut/cask#isInvokedBySkillMethod
+:isInvokedBySkillMethod rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf CSS:isInvokedBy ;
+                        rdfs:domain PackML:Transition ;
+                        rdfs:range :SkillMethod .
 
 
 ###  http://www.w3id.org/hsu-aut/css#exposes
 CSS:exposes rdfs:range :SkillMethod .
-
-
-###  http://www.w3id.org/hsu-aut/css#hasParameter
-CSS:hasParameter rdfs:subPropertyOf :hasSkillVariable .
 
 
 ###  http://www.w3id.org/hsu-aut/css#providesCapability
@@ -209,27 +230,27 @@ OM-Math-Meta:description rdf:type owl:DatatypeProperty .
 
 ###  http://www.w3id.org/hsu-aut/cask#hasDefaultValue
 :hasDefaultValue rdf:type owl:DatatypeProperty ;
-                 rdfs:domain :SkillVariable .
+                 rdfs:domain CSS:SkillParameter .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasOptionValue
 :hasOptionValue rdf:type owl:DatatypeProperty ;
-                rdfs:domain :SkillVariable .
+                rdfs:domain CSS:SkillParameter .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasVariableName
 :hasVariableName rdf:type owl:DatatypeProperty ;
-                 rdfs:domain :SkillVariable .
+                 rdfs:domain CSS:SkillParameter .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#hasVariableType
 :hasVariableType rdf:type owl:DatatypeProperty ;
-                 rdfs:domain :SkillVariable .
+                 rdfs:domain CSS:SkillParameter .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#isRequired
 :isRequired rdf:type owl:DatatypeProperty ;
-            rdfs:domain :SkillVariable .
+            rdfs:domain CSS:SkillParameter .
 
 
 #################################################################
@@ -555,8 +576,17 @@ DINEN61360:Type_Description rdf:type owl:Class .
 PackML:Command rdfs:subClassOf :StatefulMethod .
 
 
+###  http://www.w3id.org/hsu-aut/PackML#State
+PackML:State rdfs:subClassOf CSS:State ;
+             owl:disjointWith VDI3682:State .
+
+
 ###  http://www.w3id.org/hsu-aut/PackML#StateMachine
 PackML:StateMachine rdfs:subClassOf CSS:StateMachine .
+
+
+###  http://www.w3id.org/hsu-aut/PackML#Transition
+PackML:Transition rdfs:subClassOf CSS:Transition .
 
 
 ###  http://www.w3id.org/hsu-aut/VDI2206#Energy
@@ -595,7 +625,6 @@ VDI3682:TechnicalResource rdfs:subClassOf CSS:Resource .
 
 ###  http://www.w3id.org/hsu-aut/cask#CurrentStateOutput
 :CurrentStateOutput rdf:type owl:Class ;
-                    rdfs:subClassOf :SkillOutput ;
                     rdfs:comment "May be used to get the current state as an integer value" .
 
 
@@ -621,27 +650,14 @@ VDI3682:TechnicalResource rdfs:subClassOf CSS:Resource .
 
 ###  http://www.w3id.org/hsu-aut/cask#SkillCommand
 :SkillCommand rdf:type owl:Class ;
-              rdfs:subClassOf CSS:SkillParameter ;
+              rdfs:subClassOf CSS:SkillTrigger ;
               rdfs:comment "May be used to invoke a transition with a numerical value" .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#SkillMethod
 :SkillMethod rdf:type owl:Class ;
+             rdfs:subClassOf CSS:SkillTrigger ;
              rdfs:comment "Abstract concept of a method to invoke a skill. Needs to be implemented and modeled in detail for a specific technology" .
-
-
-###  http://www.w3id.org/hsu-aut/cask#SkillOutput
-:SkillOutput rdf:type owl:Class ;
-             rdfs:subClassOf :SkillVariable ;
-             rdfs:comment "May be used to retrieve results during or after Skill execution" .
-
-
-###  http://www.w3id.org/hsu-aut/cask#SkillVariable
-:SkillVariable rdf:type owl:Class ;
-               rdfs:comment """A super class for various types of Skill variables: 
-- SkillCommand: Allows to control a skill via a numeric command value
-- SkillParameter: Allows to parameterize a Skill execution
-- SkillOutput: Allows to retrieve results from a Skill""" .
 
 
 ###  http://www.w3id.org/hsu-aut/cask#StatefulMethod
@@ -654,20 +670,16 @@ VDI3682:TechnicalResource rdfs:subClassOf CSS:Resource .
                  rdfs:subClassOf :SkillMethod .
 
 
-###  http://www.w3id.org/hsu-aut/css#CapabilityConstraint
-CSS:CapabilityConstraint owl:equivalentClass [ owl:intersectionOf ( OM-Math:Application
-                                                                    [ rdf:type owl:Restriction ;
-                                                                      owl:onProperty [ owl:inverseOf CSS:isRestrictedBy
-                                                                                     ] ;
-                                                                      owl:someValuesFrom CSS:Capability
-                                                                    ]
-                                                                  ) ;
-                                               rdf:type owl:Class
-                                             ] .
-
-
-###  http://www.w3id.org/hsu-aut/css#SkillParameter
-CSS:SkillParameter rdfs:subClassOf :SkillVariable .
+###  http://www.w3id.org/hsu-aut/css#Constraint
+CSS:Constraint owl:equivalentClass [ owl:intersectionOf ( OM-Math:Application
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty [ owl:inverseOf CSS:isRestrictedBy
+                                                                           ] ;
+                                                            owl:someValuesFrom CSS:Capability
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] .
 
 
 #################################################################

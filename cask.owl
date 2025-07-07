@@ -175,13 +175,6 @@ PackML:hasTargetState rdfs:subPropertyOf CSS:hasTargetState .
                 rdfs:range :SkillMethod .
 
 
-###  http://www.w3id.org/hsu-aut/cask#invokes
-:invokes rdf:type owl:ObjectProperty ;
-         owl:inverseOf :isInvokedBySkillMethod ;
-         rdfs:domain :SkillMethod ;
-         rdfs:range PackML:Transition .
-
-
 ###  http://www.w3id.org/hsu-aut/cask#isInvokedBySkillMethod
 :isInvokedBySkillMethod rdf:type owl:ObjectProperty ;
                         rdfs:subPropertyOf CSS:isInvokedBy ;

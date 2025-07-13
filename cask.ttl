@@ -14,14 +14,14 @@
 @base <http://www.w3id.org/hsu-aut/cask#> .
 
 <http://www.w3id.org/hsu-aut/cask> rdf:type owl:Ontology ;
-                                    owl:versionIRI <http://www.w3id.org/hsu-aut/cask/3.0.0> ;
-                                    owl:imports <http://www.w3id.org/hsu-aut/DINEN61360/2.0.2> ,
+                                    owl:versionIRI <http://www.w3id.org/hsu-aut/cask/3.0.1> ;
+                                    owl:imports <http://www.w3id.org/hsu-aut/DINEN61360/2.0.3> ,
                                                 <http://www.w3id.org/hsu-aut/PackML/3.0.0> ,
                                                 <http://www.w3id.org/hsu-aut/VDI2206/2.0.0> ,
                                                 <http://www.w3id.org/hsu-aut/VDI3682/4.0.1> ,
-                                                <http://www.w3id.org/hsu-aut/css/2.0.0> ;
+                                                <http://www.w3id.org/hsu-aut/css/2.0.1> ;
                                     rdfs:comment "A domain ontology to describe capabilities and skills. This ontology extends the concepts defined in the CSS ontology (https://github.com/hsu-aut/css-ontology) by using ontology design patterns for different standards." ;
-                                    owl:versionInfo "3.0.0" .
+                                    owl:versionInfo "3.0.1" .
 
 #################################################################
 #    Object Properties

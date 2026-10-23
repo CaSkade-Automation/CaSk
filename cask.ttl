@@ -14,14 +14,14 @@
 @base <http://www.w3id.org/hsu-aut/cask#> .
 
 <http://www.w3id.org/hsu-aut/cask> rdf:type owl:Ontology ;
-                                    owl:versionIRI <http://www.w3id.org/hsu-aut/cask/4.0.0> ;
+                                    owl:versionIRI <http://www.w3id.org/hsu-aut/cask/5.0.0> ;
                                     owl:imports <http://www.w3id.org/hsu-aut/DINEN61360/2.0.3> ,
                                                 <http://www.w3id.org/hsu-aut/PackML/3.0.0> ,
                                                 <http://www.w3id.org/hsu-aut/VDI2206/2.0.0> ,
                                                 <http://www.w3id.org/hsu-aut/VDI3682/4.0.1> ,
                                                 <http://www.w3id.org/hsu-aut/css/3.0.0> ;
                                     rdfs:comment "A domain ontology to describe capabilities and skills. This ontology extends the concepts defined in the CSS ontology (https://github.com/hsu-aut/css-ontology) by using ontology design patterns for different standards." ;
-                                    owl:versionInfo "4.0.0" .
+                                    owl:versionInfo "5.0.0" .
 
 #################################################################
 #    Object Properties
@@ -180,6 +180,14 @@ PackML:hasTargetState rdfs:subPropertyOf CSS:hasTargetState .
                         rdfs:subPropertyOf CSS:isInvokedBy ;
                         rdfs:domain PackML:Transition ;
                         rdfs:range :SkillMethod .
+
+
+###  http://www.w3id.org/hsu-aut/css#hasInput
+CSS:hasInput rdfs:comment """Not used in this ontology and not recommended: its range is restricted to CSS:Product, so energy and information cannot be expressed as process inputs. Use VDI3682:hasInput instead, whose range VDI3682:State covers product, energy and information, see VDI/VDE 3682 Part 1, Section 4.1.""" .
+
+
+###  http://www.w3id.org/hsu-aut/css#hasOutput
+CSS:hasOutput rdfs:comment """Not used in this ontology and not recommended: its range is restricted to CSS:Product, so energy and information cannot be expressed as process outputs. Use VDI3682:hasOutput instead, whose range VDI3682:State covers product, energy and information, see VDI/VDE 3682 Part 1, Section 4.1.""" .
 
 
 ###  http://www.w3id.org/hsu-aut/css#providesCapability
@@ -657,6 +665,25 @@ VDI3682:TechnicalResource rdfs:subClassOf CSS:Resource .
 ###  http://www.w3id.org/hsu-aut/cask#StatelessMethod
 :StatelessMethod rdf:type owl:Class ;
                  rdfs:subClassOf :SkillMethod .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+###  Product, energy and information are the three distinct flow symbols of a
+###  formalised process description, see VDI/VDE 3682 Part 1, Section 4.1
+###  ("Produkt (Kreis), Energie (Raute), Information (Sechseck)") and Section 2
+###  ("Objekt: Instanz eines grafischen Elements"). The guideline's class diagram
+###  (Part 2, Figure 2) does not mark the generalisation as disjoint and its
+###  notation does not offer the construct, so the disjointness is asserted here
+###  rather than in the VDI3682 ODP.
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( VDI3682:Product
+                VDI3682:Energy
+                VDI3682:Information
+              )
+] .
 
 
 #################################################################

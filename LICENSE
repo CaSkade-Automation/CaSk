@@ -19,3 +19,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+--------------------------------------------------------------------------
+
+Third-party content
+
+The units of measure in the namespace http://qudt.org/vocab/unit/ and the
+quantity kind dimension vectors in http://qudt.org/vocab/dimensionvector/
+that cask.ttl contains are taken from QUDT 3.5.3
+(http://qudt.org/3.5.3/vocab/unit), Copyright QUDT.org, licensed under the
+Creative Commons Attribution 4.0 International License
+(https://creativecommons.org/licenses/by/4.0/). They remain under that
+license.
+
+The material was modified: of everything QUDT states about a unit, only
+qudt:conversionMultiplier, qudt:conversionOffset, qudt:hasDimensionVector,
+qudt:iec61360Code, qudt:uneceCommonCode and the English rdfs:label are
+reproduced, each verbatim, and the typing owl:NamedIndividual, which QUDT
+leaves implicit, is added. tools/generate_units.py performs the extraction.
+
+The MIT License above applies to the rest of this repository.

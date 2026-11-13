@@ -35,5 +35,29 @@ A detailed overview of the alignment of these ODPs with the CSS ontology is show
 </p>
 
 
+## Units of measure
+
+A type description according to IEC 61360 states its unit as a string (`DINEN61360:Unit_of_Measure`). A string cannot be checked or converted, which is why CaSk adds `CaSk:hasUnit`, a functional object property from `DINEN61360:Type_Description` to `qudt:Unit`:
+
+```turtle
+setVel:velocity_TD a DINEN61360:Type_Description ;
+    DINEN61360:Unit_of_Measure "m/s" ;
+    CaSk:hasUnit <http://qudt.org/vocab/unit/M-PER-SEC> .
+```
+
+**QUDT is not imported.** The seven QUDT terms CaSk uses - `qudt:Unit`, `qudt:QuantityKindDimensionVector`, `qudt:hasDimensionVector`, `qudt:conversionMultiplier`, `qudt:conversionOffset`, `qudt:iec61360Code` and `qudt:uneceCommonCode` - are declared in `cask.ttl`, the same way CaSk already declares the OpenMath terms it uses. The declarations are identical to QUDT's own, so loading CaSk together with QUDT adds no triple and causes no conflict.
+
+**The units themselves are shipped.** `cask.ttl` contains all 2940 units of the QUDT unit vocabulary as individuals, together with the 230 dimension vectors they refer to, so that you do not have to fetch them. Every unit carries a conversion multiplier and a dimension vector; 1889 carry an IEC 61360 code and 1577 a UNECE Recommendation 20 code. Two values in different units are comparable when their dimension vectors are equal, and are converted through `qudt:conversionMultiplier` and, for temperatures, `qudt:conversionOffset`.
+
+Anything else QUDT states about a unit - symbols, UCUM codes, multilingual labels, quantity kinds, links to Wikidata or DBpedia - stays in QUDT. The IRIs are QUDT's own, so you can load the full QUDT collection alongside CaSk at any time.
+
+The block is generated, not maintained by hand. To rebuild it from a newer QUDT release, download that release and run:
+
+```
+python tools/generate_units.py qudt-all.ttl cask.ttl
+```
+
+The units are taken from [QUDT 3.5.3](http://qudt.org/3.5.3/qudt-all), Copyright QUDT.org, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
 ## Ontology example
 Detailed examples can be found in the two repositories of  [CaSkMan](https://github.com/aljoshakoecher/caskman) and [RoboCaSk](https://github.com/Miguel2617/robocap). Are you interested in a more abstract example using only the CaSk ontology? Feel free to create an issue to let us know. We can provide such an example in the future.
